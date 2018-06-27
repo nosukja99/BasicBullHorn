@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Title</title>
+</head>
+<body>
+<div class="container" >
+    <div class="container1">
+    <h2 class="text-info"><strong><img src="https://www.shareicon.net/data/128x128/2015/10/07/113737_megaphone_512x512.png" alt="bullhorn">BullHorn</strong></h2>
+        <div class="emptySpace"></div>
+        <hr>
+    </div>
+
+    <div class="container3">
+<form action="#" th:action="@{/process}"
+      th:object="${message}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <h4 class="text-info"><strong><img src="https://www.shareicon.net/data/128x128/2017/02/09/878600_message_512x512.png" alt="bullhorn">Message Content: </strong></h4>
+    <textarea placeholder="Type your message!" rows="10" cols="80" th:field="*{content}" />
+    <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span><br />
+    <h4 class="text-info"><strong>Message Post Date : </strong><input type="date" th:field="*{postedDate}" /></h4>
+    <span th:if="${#fields.hasErrors('postedDate')}" th:errors="*{postedDate}"></span><br />
+    <h4 class="text-info"><strong>Message Sent By: </strong><input type="text" th:field="*{sentBy}" placeholder="Type your name!"/></h4>
+    <span th:if="${#fields.hasErrors('sentBy')}" th:errors="*{sentBy}"></span><br />
+    <br/>
+    <input class="button" type="submit" value="Submit" />
+</form></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>
