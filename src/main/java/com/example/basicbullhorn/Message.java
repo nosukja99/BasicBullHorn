@@ -28,6 +28,8 @@ public class Message {
     @Size(min=1)
     private String postedDate;
 
+    private String image;
+
     public long getId() {
         return id;
     }
@@ -58,5 +60,13 @@ public class Message {
 
     public void setPostedDate(String postedDate) {
         this.postedDate = postedDate;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

@@ -17,7 +17,7 @@
 
     <div class="container3">
 <form action="#" th:action="@{/process}"
-      th:object="${message}" method="post">
+      th:object="${message}" method="post" enctype="multipart/form-data">
     <input type="hidden" th:field="*{id}" />
     <h4 class="text-info"><strong><img src="https://www.shareicon.net/data/128x128/2017/02/09/878600_message_512x512.png" alt="bullhorn">Message Content: </strong></h4>
     <textarea placeholder="Type your message!" rows="10" cols="80" th:field="*{content}" />
@@ -26,6 +26,8 @@
     <span th:if="${#fields.hasErrors('postedDate')}" th:errors="*{postedDate}"></span><br />
     <h4 class="text-info"><strong>Message Sent By: </strong><input type="text" th:field="*{sentBy}" placeholder="Type your name!"/></h4>
     <span th:if="${#fields.hasErrors('sentBy')}" th:errors="*{sentBy}"></span><br />
+    <h4 class="text-info"><strong>Image Upload: </strong><input type="file" name="file" /></h4>
+    <br/>
     <br/>
     <input class="button" type="submit" value="Submit" />
 </form></div>
