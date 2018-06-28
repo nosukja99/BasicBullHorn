@@ -45,17 +45,20 @@ public class HomeController {
         }
         if(file.isEmpty())
         {
-            return "redirect:/add";
-        }
-        try{
-            Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
-            message.setImage(uploadResult.get("url").toString());
             messageRepository.save(message);
-        }catch (IOException e){
-            e.printStackTrace();
-            return "redirect:/add";
         }
-        messageRepository.save(message);
+        else {
+            try {
+                Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
+                message.setImage(uploadResult.get("url").toString());
+                messageRepository.save(message);
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "redirect:/add";
+            }
+            messageRepository.save(message);
+        }
+
         return "redirect:/";
     }
 }

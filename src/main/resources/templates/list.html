@@ -14,25 +14,28 @@
     <h2 class="text-info"><strong><img src="https://www.shareicon.net/data/128x128/2015/10/07/113737_megaphone_512x512.png" alt="bullhorn">BullHorn</strong></h2>
     <div class="emptySpace"></div><hr></div></div>
 <div class="container">
-    <div class="container2">
+    <div class="container3">
     <table class="table">
     <thead>
     <tr>
-
+        <th scope="col">Gravatar</th>
         <th scope="col">Message ID</th>
         <th scope="col">Message content</th>
         <th scope="col">Posted Date</th>
         <th scope="col">Sender</th>
+        <th scope="col">Email</th>
         <th scope="col">Image</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="message : ${messages}">
 
+        <td><img id="gravatar" src="http://gravatar.com/avatar/a4a6227e8de485098395607980cc1cd4?s=200" alt="Hyejeong"/></td>
         <td th:text="${message.id}"></td>
         <td th:text="${message.content}"></td>
         <td th:text="${message.postedDate}"></td>
         <td th:text="${message.sentBy}"></td>
+        <td th:text="${message.email}"></td>
         <td><div th:if="${message.image} !=null"><img th:src="${message.image}"></div></td>
     </tr>
 
